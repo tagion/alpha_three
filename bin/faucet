@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd /network/faucet/ tagionwallet --pin 1111 --pay $1 --send

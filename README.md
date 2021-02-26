@@ -10,10 +10,11 @@
 
 This release includes the updated `tagionwave` and `tagionwallet` binaries with CLI. No GUI in this release. 
 
-### MDNS Records
+- Added Name Records according to the [Technical Paper](https://github.com/tagion/resources/raw/master/technical-paper/tagion-technical-paper.pdf);
+- Added MDNS Record support in the DART database.
+- Added support for `#keys` in the DART database (record hash of a HiBON member);
 
-
-
+> Improvement of the Hashgraph has been moved to **AlphaFour**.
 
 ## Getting Started
 
@@ -42,7 +43,7 @@ To start the local network:
 
 ```bash
 # TODO: Add flags
-docker run --name=alpha3 -ti tagion/tagionwave_alphathree tagionwave -N 11 --loops 0
+docker kill alpha3 &> /dev/null && docker run --name=alpha3 -ti tagion/tagion_alphathree tagionwave -N 11 --loops 0
 ```
 
 To create a wallet and do some transfers in the network, attach to a running container:
@@ -51,7 +52,7 @@ To create a wallet and do some transfers in the network, attach to a running con
 docker exec -ti alpha3 bash
 ```
 
-The `tagionwallet` is already in PATH, feel free to create wallet.
+The `tagionwallet` is already in PATH, feel free to create a wallet.
 
 ```bash
 tagionwallet -g # Opens an interactive mode
