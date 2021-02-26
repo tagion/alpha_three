@@ -20,30 +20,13 @@ This release includes the updated `tagionwave` and `tagionwallet` binaries with 
 
 Here we show how to run the local network (multiple nodes on a single machine).
 
-The `tagionwave` was tested on Ubuntu 20.04.2.0 LTS. If you have macOS or Windows, you can run it from Docker (follow the guide below).
-
-### Run on Ubuntu 20.04
-
-Clone this repo and open the `./bin` directory with the shell.
-
-```bash
-# Create the directory for the DART database:
-mkdir data
-
-# Disable the panic due to cgo pointer to Go
-export GODEBUG=cgocheck=0
-
-# Run the network
-./tagionwave -N 11 --loops 0
-```
-
 ### Run with Docker
 
 To start the local network:
 
 ```bash
 # TODO: Add flags
-docker kill alpha3 &> /dev/null && docker run --name=alpha3 -ti tagion/tagion_alphathree tagionwave -N 11 --loops 0
+docker rm alpha3 &> /dev/null && docker run --name=alpha3 -ti tagion/tagion_alphathree tagionwave --loops 0
 ```
 
 To create a wallet and do some transfers in the network, attach to a running container:
